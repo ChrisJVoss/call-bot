@@ -1,0 +1,21 @@
+{
+  "name": "call-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "knex": "^0.13.0",
+    "ngrok": "^2.2.14",
+    "pg": "^6.4.0",
+    "semantic-ui": "^2.2.11",
+    "twilio": "^3.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
