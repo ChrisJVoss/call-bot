@@ -1,0 +1,14 @@
+body {
+  background-color: #ecf0f1;
+}
+
+.heading {
+  padding-top: 10px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #2c3e50;
+}
+
+.form {
+  padding-left: 10px;
+}
