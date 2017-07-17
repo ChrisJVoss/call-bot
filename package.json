@@ -7,9 +7,9 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "knex": "^0.13.0",
+    "materialize-css": "^0.99.0",
     "ngrok": "^2.2.14",
     "pg": "^6.4.0",
-    "semantic-ui": "^2.2.11",
     "twilio": "^3.5.0"
   },
   "devDependencies": {},
