@@ -10,4 +10,6 @@ const addToTasks = function(taskObject) {
   query
     .then()
 }
-module.exports = addToTasks
+module.exports = {
+  addToTasks: addToTasks
+}
