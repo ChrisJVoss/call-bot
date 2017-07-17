@@ -4,15 +4,10 @@ const knex = require('knex') ({
 })
 
 const addToTasks = function(taskObject) {
-  console.log(taskObject)
   const query = knex
     .insert(taskObject)
     .into('todo')
-  console.log(query.toString())
-
   query
-    .then(() => {
-      console.log('Done!')
-    })
+    .then()
 }
 module.exports = addToTasks

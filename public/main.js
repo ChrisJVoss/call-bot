@@ -8,12 +8,8 @@ let fetchData = {
 }
 
 fetch('http://localhost:3000/tasks', fetchData)
-  .then(response => {
-    console.log(response)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+  .then()
+  .catch()
 }
 
 var $myForm = document.getElementById('taskForm')
@@ -44,4 +40,3 @@ $('.datepicker').pickadate({
   selectMonths: true,
   selectYears: 15
 });
-//

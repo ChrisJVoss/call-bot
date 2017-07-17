@@ -1,5 +1,4 @@
 const express = require('express')
-// const path = require('path')
 const bodyParser = require('body-parser')
 const addToTasks = require('./knex')
 const path = require('path')
@@ -21,4 +20,3 @@ app.post('/tasks', (req, res) => {
 app.listen(3000, () => {
   console.log('Listening on 3000!')
 })
-//
