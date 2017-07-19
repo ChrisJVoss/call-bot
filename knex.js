@@ -14,6 +14,8 @@ const list = function () {
   const query = knex
     .select('id', 'task', 'date', 'time')
     .from('todo')
+    .orderBy('date')
+    .orderBy('time')
   return query
 }
 module.exports = {
