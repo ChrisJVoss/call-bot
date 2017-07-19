@@ -12,7 +12,7 @@ const add = function(taskObject) {
 
 const list = function () {
   const query = knex
-    .select('id', 'task', 'date', 'time')
+    .select('id', 'task', 'date_text', 'time_text')
     .from('todo')
     .orderBy('date')
     .orderBy('time')
