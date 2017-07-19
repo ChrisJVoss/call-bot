@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const knexFunction = require('./knex')
+const tasks = require('./knex')
 const path = require('path')
 
 const app = express()
@@ -13,14 +13,14 @@ app.use(staticMiddleware)
 app.use(jsonParser)
 
 app.post('/tasks', (req, res) => {
-  knexFunction.addToTasks(req.body)
+  tasks.add(req.body)
   .then(() => {
     res.sendStatus(200)
   })
 })
 
 app.get('/tasks', (req, res) => {
-  knexFunction.getTasks()
+  tasks.list()
     .then( result => {
       res.json(result)
     })

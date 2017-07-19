@@ -7,12 +7,12 @@ let fetchData = {
   body: JSON.stringify(dataFromForm)
 }
 
-return fetch('http://localhost:3000/tasks', fetchData)
+return fetch('/tasks', fetchData)
   .then()
   .catch()
 }
 
-const $myForm = document.getElementById('taskForm')
+const $myForm = document.getElementById('task-form')
 
 $myForm.addEventListener('submit', function (event) {
   event.preventDefault()
@@ -27,18 +27,18 @@ $myForm.addEventListener('submit', function (event) {
   postTask(data)
     .then(() => {
       $myForm.reset()
-      fetchFunction()
+      getTaskList()
     })
 
 })
 
-const $taskList = document.getElementById('taskList')
+const $taskList = document.getElementById('task-list')
 
 document.addEventListener('DOMContentLoaded', event => {
-  fetchFunction()
+  getTaskList()
 })
-const fetchFunction = function() {
-  fetch('http://localhost:3000/tasks')
+const getTaskList = function() {
+  fetch('/tasks')
     .then(response => {
       return response.json()
     })
@@ -51,13 +51,13 @@ const fetchFunction = function() {
         })
     })
 }
-const renderTasks = function(todoList) {
+const renderTasks = function(todo) {
   const $todo = document.createElement('li')
   const $task = document.createElement('p')
   const $date = document.createElement('p')
   const $time = document.createElement('p')
   $todo.classList.add('collection-item')
-  const { task, date, time } = todoList
+  const { task, date, time } = todo
   $task.textContent = task
   $date.textContent = date
   $time.textContent = time
