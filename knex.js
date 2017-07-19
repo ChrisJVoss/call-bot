@@ -3,11 +3,20 @@ const knex = require('knex') ({
   connection: 'postgres://localhost:5432/to-do'
 })
 
-const addToTasks = function(taskObject) {
+const add = function(taskObject) {
   const query = knex
     .insert(taskObject)
     .into('todo')
-  query
-    .then()
+  return query
 }
-module.exports = addToTasks
+
+const list = function () {
+  const query = knex
+    .select('id', 'task', 'date', 'time')
+    .from('todo')
+  return query
+}
+module.exports = {
+  add: add,
+  list: list
+}

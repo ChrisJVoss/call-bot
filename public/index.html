@@ -9,32 +9,44 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   </head>
   <body>
+    <nav>
+      <a href="#tasks">List</a>
+      <a href="#form">Add</a>
+    </nav>
     <div class="heading">
-      <h1>Call-Bot</h1>
+      <h3>Call-Bot</h3>
       <h5>Give  yourself a call.</h5>
     </div>
-    <div class="row">
-      <form class="col s6" id="taskForm">
-        <div class="row">
-          <div class="input-field col s6">
-            <input id="some_task" type="text" class="validate" name="task">
-            <label for="some_task">Write your reminder here!</label>
+    <div class="view hidden" id="form">
+      <div class="row">
+        <form class="col s6 offset-s3" id="task-form">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="some_task" type="text" class="validate" name="task">
+              <label for="some_task">Leave your message here!</label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-            <input type="date" class="datepicker" id="date_picker" name="date">
-            <label for="date_picker">Select the date.</label>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="date" class="datepicker" id="date_picker" name="date">
+              <label for="date_picker">Choose a date.</label>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-            <input class="timepicker" id="time_picker" name="time">
-            <label for="time_picker">Choose a time.</label>
+          <div class="row">
+            <div class="input-field col s12">
+              <input class="timepicker" id="time_picker" name="time">
+              <label for="time_picker">Choose the time to recieve your reminder.</label>
+            </div>
           </div>
-        </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-      </form>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="row view" id="tasks">
+      <div class="task-list-wrapper col s6 offset-s3">
+        <ul class="collection" id="task-list">
+        </ul>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>

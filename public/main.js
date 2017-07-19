@@ -7,12 +7,12 @@ let fetchData = {
   body: JSON.stringify(dataFromForm)
 }
 
-fetch('http://localhost:3000/tasks', fetchData)
+return fetch('/tasks', fetchData)
   .then()
   .catch()
 }
 
-var $myForm = document.getElementById('taskForm')
+const $myForm = document.getElementById('task-form')
 
 $myForm.addEventListener('submit', function (event) {
   event.preventDefault()
@@ -25,8 +25,77 @@ $myForm.addEventListener('submit', function (event) {
     time: formData.get('time')
   }
   postTask(data)
-  $myForm.reset()
+    .then(() => {
+      $myForm.reset()
+      getTaskList()
+    })
+
 })
+
+const $taskList = document.getElementById('task-list')
+
+document.addEventListener('DOMContentLoaded', event => {
+  getTaskList()
+})
+const getTaskList = function() {
+  fetch('/tasks')
+    .then(response => {
+      return response.json()
+    })
+    .then(taskList => {
+      $taskList.innerHTML = ''
+      taskList
+        .map(renderTasks)
+        .forEach($task => {
+          $taskList.appendChild($task)
+        })
+    })
+}
+const renderTasks = function(todo) {
+  const $todo = document.createElement('li')
+  const $task = document.createElement('p')
+  const $date = document.createElement('p')
+  const $time = document.createElement('p')
+  $todo.classList.add('collection-item')
+  const { task, date, time } = todo
+  $task.textContent = task
+  $date.textContent = date
+  $time.textContent = time
+  $todo.appendChild($task)
+  $todo.appendChild($date)
+  $todo.appendChild($time)
+  return $todo
+}
+
+class HashRouter {
+  constructor($views) {
+    this.$views = $views
+    this.isListening = false
+  }
+  match(hash) {
+    const viewId = hash.replace('#', '')
+    this.$views.forEach($view => {
+      if ($view.id === viewId) {
+        $view.classList.remove('hidden')
+      }
+      else {
+        $view.classList.add('hidden')
+      }
+    })
+  }
+  listen() {
+    if (this.isListening) return
+    window.addEventListener('hashchange', () => {
+      this.match(window.location.hash)
+    })
+    this.isListening = true
+  }
+}
+
+const $views = document.querySelectorAll('.view')
+const router = new HashRouter($views)
+
+router.listen()
 
 $('.timepicker').pickatime({
     default: 'now',
