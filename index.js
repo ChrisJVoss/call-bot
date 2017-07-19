@@ -14,7 +14,16 @@ app.use(jsonParser)
 
 app.post('/tasks', (req, res) => {
   knexFunction.addToTasks(req.body)
-  res.sendStatus(200)
+  .then(() => {
+    res.sendStatus(200)
+  })
+})
+
+app.get('/tasks', (req, res) => {
+  knexFunction.getTasks()
+    .then( result => {
+      res.json(result)
+    })
 })
 
 app.listen(3000, () => {

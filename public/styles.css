@@ -12,3 +12,21 @@ body {
 .form {
   padding-left: 10px;
 }
+
+.taskListWrapper {
+  margin-top: 20px;
+}
+
+.test {
+  position: relative;
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  margin-left: 10px;
+  margin-right: 10px;
+}

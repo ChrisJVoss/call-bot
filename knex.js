@@ -7,9 +7,16 @@ const addToTasks = function(taskObject) {
   const query = knex
     .insert(taskObject)
     .into('todo')
-  query
-    .then()
+  return query
+}
+
+const getTasks = function () {
+  const query = knex
+    .select('id', 'task', 'date', 'time')
+    .from('todo')
+  return query
 }
 module.exports = {
-  addToTasks: addToTasks
+  addToTasks: addToTasks,
+  getTasks: getTasks
 }
