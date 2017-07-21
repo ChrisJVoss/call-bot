@@ -1,4 +1,4 @@
-const postTask = function (dataFromForm) {
+function postTask(dataFromForm) {
 let fetchData = {
   method: 'POST',
   headers: {
@@ -39,7 +39,7 @@ const $taskList = document.getElementById('task-list')
 document.addEventListener('DOMContentLoaded', event => {
   getTaskList()
 })
-const getTaskList = function() {
+function getTaskList() {
   fetch('/tasks')
     .then(response => {
       return response.json()
@@ -53,7 +53,7 @@ const getTaskList = function() {
         })
     })
 }
-const renderTasks = function(todo) {
+function renderTasks(todo) {
   const $todo = document.createElement('li')
   const $task = document.createElement('p')
   const $date = document.createElement('p')
@@ -98,6 +98,22 @@ const $views = document.querySelectorAll('.view')
 const router = new HashRouter($views)
 
 router.listen()
+/*
+const ignored = require('./tokens.js')
+const client = require('twilio')(ignored.sid, ignored.token)
+
+client.calls.create({
+  url: 'http://ed1caa1e.ngrok.io/message.xml',
+  to: ignored.myPhone,
+  from: '+15592064929'
+}, (err, call) => {
+  if(err) {
+    consle.log(err)
+  } else {
+    console.log(call.sid)
+  }
+})
+*/
 
 $('.timepicker').pickatime({
     default: 'now',
