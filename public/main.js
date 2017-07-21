@@ -98,22 +98,6 @@ const $views = document.querySelectorAll('.view')
 const router = new HashRouter($views)
 
 router.listen()
-/*
-const ignored = require('./tokens.js')
-const client = require('twilio')(ignored.sid, ignored.token)
-
-client.calls.create({
-  url: 'http://ed1caa1e.ngrok.io/message.xml',
-  to: ignored.myPhone,
-  from: '+15592064929'
-}, (err, call) => {
-  if(err) {
-    consle.log(err)
-  } else {
-    console.log(call.sid)
-  }
-})
-*/
 
 $('.timepicker').pickatime({
     default: 'now',
