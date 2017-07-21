@@ -3,9 +3,9 @@ const knex = require('knex') ({
   connection: 'postgres://localhost:5432/to-do'
 })
 
-function add(taskObject) {
+function add(task) {
   const query = knex
-    .insert(taskObject)
+    .insert(task)
     .into('todo')
   return query
 }

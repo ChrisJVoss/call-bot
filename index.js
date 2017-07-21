@@ -80,16 +80,15 @@ function compareDates(now, dates) {
       const finishedMessage = xml([ { Response: [ { Say: [ { _attr: { voice: 'alice'}}, message]}]}], { declaration: true})
       fs.writeFile('msg.xml', finishedMessage, (err) => {
         if (err) throw err
-        console.log('Task has been written to msg.xml')
-      })
-      client.calls.create({
-        url: 'http://87b11004.ngrok.io/message.xml',
-        to: ignored.myPhone,
-        from: '+15592064929'
-      }, (err, call) => {
-        if(err) {
-          console.log(err)
-        }
+        client.calls.create({
+          url: 'http://637674f8.ngrok.io/message.xml',
+          to: ignored.myPhone,
+          from: ignored.twilioPhone
+        }, (err, call) => {
+          if(err) {
+            console.log(err)
+          }
+        })
       })
     }
   }
