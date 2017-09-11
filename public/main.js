@@ -1,4 +1,4 @@
-const postTask = function (dataFromForm) {
+function postTask(dataFromForm) {
 let fetchData = {
   method: 'POST',
   headers: {
@@ -22,7 +22,9 @@ $myForm.addEventListener('submit', function (event) {
   let data = {
     task: formData.get('task'),
     date: formData.get('date'),
-    time: formData.get('time')
+    date_text: formData.get('date'),
+    time: formData.get('time'),
+    time_text: formData.get('time')
   }
   postTask(data)
     .then(() => {
@@ -37,7 +39,7 @@ const $taskList = document.getElementById('task-list')
 document.addEventListener('DOMContentLoaded', event => {
   getTaskList()
 })
-const getTaskList = function() {
+function getTaskList() {
   fetch('/tasks')
     .then(response => {
       return response.json()
@@ -51,16 +53,16 @@ const getTaskList = function() {
         })
     })
 }
-const renderTasks = function(todo) {
+function renderTasks(todo) {
   const $todo = document.createElement('li')
   const $task = document.createElement('p')
   const $date = document.createElement('p')
   const $time = document.createElement('p')
   $todo.classList.add('collection-item')
-  const { task, date, time } = todo
+  const { task, date_text, time_text } = todo
   $task.textContent = task
-  $date.textContent = date
-  $time.textContent = time
+  $date.textContent = date_text
+  $time.textContent = time_text
   $todo.appendChild($task)
   $todo.appendChild($date)
   $todo.appendChild($time)
